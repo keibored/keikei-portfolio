@@ -94,6 +94,21 @@ a:hover .cta-sparkle{
     transform:translateY(-2px) scale(1.08);
 }
 
+/* Same hover brighten, for variant "c" — its sparkles live in a
+   wrapper AROUND the button rather than inside an <a>, so they
+   need their own hover trigger. Hovering the button still counts,
+   since the button is inside this wrapper. */
+
+.cta-sparkle-wrap:hover .cta-sparkle-glyph{
+
+    filter:brightness(1.35);
+}
+
+.cta-sparkle-wrap:hover .cta-sparkle{
+
+    transform:translateY(-2px) scale(1.08);
+}
+
 /* ===========================
    VARIANT A
 =========================== */
@@ -123,6 +138,30 @@ a:hover .cta-sparkle{
 .cta-sparkles--b .cta-sparkle-4 .cta-sparkle-glyph{ width:8px; height:8px; animation-delay:2.7s; }
 
 /* ===========================
+   VARIANT C
+   A wider, 6-point halo meant to
+   sit in a .cta-sparkle-wrap AROUND
+   a button (not clipped inside it).
+   Deliberately irregular — mixed
+   sizes/opacity/offsets rather than
+   a symmetrical ring.
+=========================== */
+
+.cta-sparkles--c .cta-sparkle-1{ top:-6px; left:42%; }
+.cta-sparkles--c .cta-sparkle-2{ top:10px; left:-4px; }
+.cta-sparkles--c .cta-sparkle-3{ top:6px; right:-2px; }
+.cta-sparkles--c .cta-sparkle-4{ bottom:8px; left:-6px; }
+.cta-sparkles--c .cta-sparkle-5{ bottom:4px; right:0; }
+.cta-sparkles--c .cta-sparkle-6{ bottom:-8px; left:46%; }
+
+.cta-sparkles--c .cta-sparkle-1 .cta-sparkle-glyph{ width:7px; height:7px; animation-delay:0s; }
+.cta-sparkles--c .cta-sparkle-2 .cta-sparkle-glyph{ width:9px; height:9px; animation-delay:.5s; opacity:.85; }
+.cta-sparkles--c .cta-sparkle-3 .cta-sparkle-glyph{ width:6px; height:6px; animation-delay:1s; }
+.cta-sparkles--c .cta-sparkle-4 .cta-sparkle-glyph{ width:6px; height:6px; animation-delay:1.5s; opacity:.7; }
+.cta-sparkles--c .cta-sparkle-5 .cta-sparkle-glyph{ width:8px; height:8px; animation-delay:2s; }
+.cta-sparkles--c .cta-sparkle-6 .cta-sparkle-glyph{ width:7px; height:7px; animation-delay:2.5s; opacity:.8; }
+
+/* ===========================
    RESPONSIVE
    Fewer, smaller, tighter to the
    button on small screens — never
@@ -143,6 +182,18 @@ a:hover .cta-sparkle{
     .cta-sparkles--b .cta-sparkle-1{ top:-6px; }
     .cta-sparkles--b .cta-sparkle-2{ top:-7px; }
     .cta-sparkles--b .cta-sparkle-3{ bottom:-5px; }
+
+    /* Variant c: drop to 4 sparkles and pull them in closer */
+    .cta-sparkles--c .cta-sparkle-5,
+    .cta-sparkles--c .cta-sparkle-6{
+
+        display:none;
+    }
+
+    .cta-sparkles--c .cta-sparkle-1{ top:-4px; left:38%; }
+    .cta-sparkles--c .cta-sparkle-2{ top:6px; left:-2px; }
+    .cta-sparkles--c .cta-sparkle-3{ top:2px; right:2px; }
+    .cta-sparkles--c .cta-sparkle-4{ bottom:4px; left:-2px; }
 
     .cta-sparkle-glyph{
 

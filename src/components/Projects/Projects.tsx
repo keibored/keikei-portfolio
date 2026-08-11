@@ -91,16 +91,21 @@ function Projects() {
 
               <p>{projects[0].description}</p>
 
-              <a
-                className="view-project-btn"
-                href={projects[0].url}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-cursor="view"
-              >
-                <CtaSparkles variant="a" />
-                <span className="cta-label">View Project</span>
-              </a>
+              <div className="view-project-wrap cta-sparkle-wrap">
+
+                <CtaSparkles variant="c" />
+
+                <a
+                  className="view-project-btn"
+                  href={projects[0].url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cursor="view"
+                >
+                  View Project
+                </a>
+
+              </div>
 
             </div>
 

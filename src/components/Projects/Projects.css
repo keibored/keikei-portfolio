@@ -536,12 +536,6 @@
 
 .view-project-btn{
 
-    position:relative;
-
-    isolation:isolate;
-
-    align-self:center;
-
     display:inline-flex;
 
     align-items:center;
@@ -599,11 +593,16 @@
         0 20px 42px rgba(150,100,240,.42);
 }
 
-.view-project-btn .cta-label{
+/* Wrapper the sparkles live in — sized to the button plus room
+   for the sparkles to sit OUTSIDE it, then centered as one unit
+   by .featured-body's own align-items:center (same mechanism
+   that centered the bare button before). */
+
+.view-project-wrap{
 
     position:relative;
 
-    z-index:1;
+    padding:22px 34px;
 }
 
 /* ===========================
