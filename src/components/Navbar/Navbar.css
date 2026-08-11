@@ -1,0 +1,854 @@
+/* =========================================
+   NAVBAR
+   Compact glass bar — mobile only.
+   Desktop/tablet navigation lives in
+   the .sidebar below.
+========================================= */
+
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+
+  display: none;
+  justify-content: center;
+}
+
+
+/* =========================================
+   NAVBAR CONTAINER
+========================================= */
+
+.navbar-container {
+  position: relative;
+
+  width: min(1250px, 92%);
+  height: 82px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 2rem;
+
+  background: var(--navbar-bg);
+
+  backdrop-filter: var(--navbar-blur);
+  -webkit-backdrop-filter: var(--navbar-blur);
+
+  border: 1px solid var(--navbar-border);
+
+  border-radius: 999px;
+
+  box-shadow:
+    var(--navbar-shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+
+  transition:
+    background 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.4s ease;
+}
+
+[data-theme="dark"] .navbar-container {
+  box-shadow:
+    var(--navbar-shadow),
+    inset 0 1px 0 var(--glass-highlight),
+    inset 0 0 40px rgba(150, 100, 255, 0.05);
+}
+
+.navbar-container:hover {
+  background: var(--navbar-bg-hover);
+
+  box-shadow:
+    0 25px 70px rgba(139, 92, 246, 0.20),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+  transform: translateY(-2px);
+}
+
+[data-theme="dark"] .navbar-container:hover {
+  box-shadow:
+    0 12px 46px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(230, 215, 255, 0.18),
+    inset 0 0 46px rgba(150, 100, 255, 0.07);
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+
+  font-size: 2.1rem;
+
+  text-decoration: none;
+
+  color: var(--logo-color);
+
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.logo:hover {
+  color: var(--accent);
+}
+
+/* The stylized "K" — same script font, size, and glow the old
+   "K." mark used. This stays the dominant visual element of the
+   lockup; the period is now the tiny sparkle below, not text. */
+
+.logo-mark {
+  position: relative;
+
+  font-family: "Petit Formal Script", "Alex Brush", "Cormorant Garamond", cursive, serif;
+
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1;
+
+  padding-right: .16em;
+
+  text-shadow:
+    0 1px 3px var(--logo-shadow),
+    0 0 20px var(--logo-glow);
+}
+
+/* The "period" — a tiny sparkle sitting where a normal "." would,
+   instead of a text character. Same four-point mark used for the
+   Hero's sparkles/cursor, just scaled down to period size and
+   anchored to the K's baseline rather than floating beside it. */
+
+.logo-spark {
+  position: absolute;
+  right: 0;
+  bottom: .06em;
+
+  width: .14em;
+  height: .14em;
+
+  background-color: var(--sparkle-color);
+
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0 Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0 Z'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   SIDEBAR
+   Desktop/tablet vertical glass navigation.
+   Same glass recipe as the old top navbar,
+   reshaped into a full-height rail.
+========================================= */
+
+.sidebar {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  bottom: 20px;
+  z-index: 9999;
+
+  width: var(--sidebar-width);
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 2rem 1.25rem;
+
+  /* Vertical scroll only if content genuinely can't
+     fit; horizontal is a hard safeguard, not the fix
+     for any single child running wide (see logo/nav/
+     social sizing below, which are the actual fix). */
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  background: var(--navbar-bg);
+
+  backdrop-filter: var(--navbar-blur);
+  -webkit-backdrop-filter: var(--navbar-blur);
+
+  border: 1px solid var(--navbar-border);
+  border-radius: 32px;
+
+  box-shadow:
+    var(--navbar-shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+
+  transition:
+    background 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    width 0.4s ease;
+}
+
+.sidebar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.10),
+    transparent 45%
+  );
+}
+
+[data-theme="dark"] .sidebar {
+  box-shadow:
+    var(--navbar-shadow),
+    inset 0 1px 0 var(--glass-highlight),
+    inset 0 0 40px rgba(150, 100, 255, 0.05);
+}
+
+[data-theme="dark"] .sidebar::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.06),
+    transparent 45%
+  );
+}
+
+.sidebar > .logo {
+  margin-bottom: 2rem;
+}
+
+.sidebar-nav {
+  width: 100%;
+
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.sidebar-link {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+
+  padding: 0.85rem 1rem;
+
+  border-radius: 16px;
+
+  color: var(--text-light);
+
+  font-weight: 500;
+  font-size: 0.95rem;
+
+  transition: color 0.3s ease;
+}
+
+.sidebar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 20px;
+
+  font-size: 1.05rem;
+  flex-shrink: 0;
+
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.sidebar-link:hover {
+  color: var(--accent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sidebar-link:hover .sidebar-icon {
+    transform: translateX(3px) scale(1.08);
+    filter: drop-shadow(0 0 6px var(--glow));
+  }
+}
+
+.sidebar-link.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.sidebar-link.active::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  border-radius: 16px;
+
+  background: var(--nav-active-bg);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid var(--nav-active-border);
+
+  box-shadow:
+    var(--nav-active-shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
+  z-index: -1;
+}
+
+.sidebar-bottom {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+
+  padding-top: 1.5rem;
+
+  border-top: 1px solid var(--border-glass);
+}
+
+.sidebar-connect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.sidebar-connect-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+
+  color: var(--text-muted);
+}
+
+.sidebar-socials {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.sidebar-socials a {
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--surface-glass);
+
+  border: 1px solid var(--border-glass);
+
+  color: var(--accent);
+  font-size: 0.95rem;
+
+  transition: 0.3s ease;
+}
+
+.sidebar-socials a:hover {
+  background: var(--accent);
+  color: white;
+  transform: translateY(-3px);
+}
+
+
+/* =========================================
+   NAVBAR ACTIONS
+========================================= */
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+/* =========================================
+   THEME TOGGLE
+   A small glass pill/switch. The knob (the
+   moon/sun in its circular glass background)
+   is one absolutely-positioned unit that
+   physically slides between the two ends of
+   the track — not just an icon swap.
+
+   --tt-track / --tt-knob / --tt-pad are the
+   single source of truth for the track/knob
+   sizing; the knob's slide distance is
+   derived from them via calc(), so resizing
+   the toggle at a breakpoint (redeclare these
+   three custom properties) automatically
+   keeps the slide distance correct.
+========================================= */
+
+.theme-toggle {
+  --tt-track: 58px;
+  --tt-knob: 26px;
+  --tt-pad: 3px;
+
+  position: relative;
+
+  width: var(--tt-track);
+  height: 32px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(123, 85, 211, 0.38);
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  /* Frosted glass with a visible lavender tint — a plain
+     white-translucent fill disappeared against the light
+     theme's own near-white page background. */
+  background: rgba(123, 85, 211, 0.16);
+
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -1px 2px rgba(79, 48, 150, 0.12),
+    0 6px 18px rgba(123, 85, 211, 0.2);
+
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+[data-theme="dark"] .theme-toggle {
+  border-color: rgba(210, 180, 255, 0.4);
+
+  background: rgba(180, 140, 255, 0.14);
+
+  box-shadow:
+    inset 0 1px 0 rgba(230, 215, 255, 0.25),
+    0 8px 20px rgba(150, 100, 255, 0.22);
+}
+
+.theme-toggle:hover {
+  background: rgba(123, 85, 211, 0.24);
+  border-color: rgba(123, 85, 211, 0.55);
+
+  transform: translateY(-1px) scale(1.03);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 10px 26px rgba(123, 85, 211, 0.3);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  background: rgba(180, 140, 255, 0.22);
+  border-color: rgba(210, 180, 255, 0.55);
+
+  box-shadow:
+    inset 0 1px 0 rgba(230, 215, 255, 0.32),
+    0 10px 26px rgba(150, 100, 255, 0.32);
+}
+
+/* The knob — a small glass circle holding the current icon.
+   Rests at the LEFT (its natural position) for dark mode, and
+   physically slides to the RIGHT for light mode. Sliding is
+   done with transform so it animates smoothly and never
+   overlaps the icon swap — the circle and icon move as one. */
+
+.theme-toggle-knob {
+  /* Light mode (default) rests at the right end of the track;
+     dark mode resets --tt-x to 0 (the left end). --tt-scale is
+     the hover lift, composed into the same transform so it can
+     never clobber the slide position. */
+  --tt-x: calc(var(--tt-track) - var(--tt-knob) - (2 * var(--tt-pad)));
+  --tt-scale: 1;
+
+  position: absolute;
+  top: var(--tt-pad);
+  left: var(--tt-pad);
+
+  width: var(--tt-knob);
+  height: var(--tt-knob);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  /* Bright glass knob, deliberately lighter than the lavender
+     track so it reads as a distinct "active" piece rather than
+     blending into the pill. Purple icon on the bright knob —
+     a white icon here had almost no contrast against it. */
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.8),
+    0 3px 10px rgba(123, 85, 211, 0.4);
+
+  color: #6d4ec5;
+  font-size: 0.8rem;
+
+  transform: translateX(var(--tt-x)) scale(var(--tt-scale));
+
+  transition: transform 0.25s ease, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-theme="dark"] .theme-toggle-knob {
+  --tt-x: 0px;
+
+  background: rgba(255, 255, 255, 0.28);
+  border-color: rgba(230, 215, 255, 0.55);
+
+  box-shadow:
+    inset 0 1px 1px rgba(230, 215, 255, 0.4),
+    0 3px 10px rgba(150, 100, 255, 0.4);
+
+  color: #fff;
+}
+
+.theme-toggle-knob svg {
+  transition: transform 0.4s ease;
+}
+
+.theme-toggle:hover .theme-toggle-knob {
+  --tt-scale: 1.06;
+
+  background: rgba(255, 255, 255, 1);
+
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.9),
+    0 4px 14px rgba(123, 85, 211, 0.5);
+}
+
+[data-theme="dark"] .theme-toggle:hover .theme-toggle-knob {
+  background: rgba(255, 255, 255, 0.4);
+
+  box-shadow:
+    inset 0 1px 1px rgba(230, 215, 255, 0.5),
+    0 4px 14px rgba(150, 100, 255, 0.5);
+}
+
+.theme-toggle:hover .theme-toggle-knob svg {
+  transform: rotate(-18deg);
+}
+
+/* =========================================
+   MENU BUTTON
+   HIDDEN ON DESKTOP
+========================================= */
+
+.menu-toggle {
+  display: none;
+
+  width: 48px;
+  height: 48px;
+
+  border-radius: 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  cursor: pointer;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  /* Purple transparent glass */
+  background: var(--chip-bg);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.3),
+    inset 0 -1px 2px rgba(79, 48, 150, 0.15),
+    0 8px 25px rgba(123, 85, 211, 0.12);
+
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .menu-toggle {
+  border-color: var(--border-glass);
+
+  box-shadow:
+    inset 0 1px 1px var(--glass-highlight),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.2),
+    0 8px 25px rgba(150, 100, 255, 0.1);
+}
+
+.menu-toggle:hover {
+    background: var(--chip-bg-hover);
+
+     box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.4),
+        0 10px 30px rgba(123, 85, 211, 0.2);
+
+    transform: translateY(-2px);
+}
+
+[data-theme="dark"] .menu-toggle:hover {
+    box-shadow:
+        inset 0 1px 1px var(--glass-highlight),
+        0 10px 30px rgba(150, 100, 255, 0.18);
+}
+
+
+/* Hamburger */
+
+.menu-toggle span {
+  width: 18px;
+  height: 2px;
+
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  box-shadow:
+    0 1px 2px rgba(74, 45, 130, 0.25);
+
+  transition: all 0.3s ease;
+}
+
+
+/* =========================================
+   MOBILE MENU
+========================================= */
+
+.mobile-menu {
+  display: none;
+}
+
+
+/* =========================================
+   TABLET / NARROW DESKTOP & MOBILE
+   The sidebar steps aside for the compact top
+   bar once the viewport gets narrow enough that
+   a sidebar (even a collapsed icon rail) starts
+   competing with the hero for width — reuses the
+   1100px because a visible sidebar down to 1024px
+   still crowds the hero against the artwork on the
+   right (confirmed by testing) — 900px/1024px/1100px
+   all need it hidden, only wider desktop widths have
+   room for both.
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .sidebar {
+    display: none;
+  }
+
+  .navbar {
+    display: flex;
+
+    top: 12px;
+  }
+
+  .navbar-container {
+    width: 92%;
+
+    height: 62px;
+
+    padding: 0 10px 0 18px;
+
+    border-radius: 22px;
+  }
+
+
+  /* Smaller logo — .logo-mark/.logo-spark are both sized in em
+     off .logo's own font-size, so this one override scales the
+     whole mark proportionally. */
+
+  .logo {
+    font-size: 2rem;
+  }
+
+
+  /* Show buttons */
+
+  .menu-toggle {
+    display: flex;
+  }
+
+
+  .theme-toggle {
+    --tt-track: 52px;
+    --tt-knob: 24px;
+
+    height: 30px;
+  }
+
+  .theme-toggle-knob {
+    font-size: 0.75rem;
+  }
+
+
+  /* =====================================
+     MOBILE DROPDOWN
+  ===================================== */
+
+  .mobile-menu {
+    position: absolute;
+
+    top: calc(100% + 10px);
+
+    right: 0;
+
+    width: 210px;
+
+    padding: 12px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    background: var(--surface-glass-strong);
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    border: 1px solid var(--border-glass);
+
+    border-radius: 20px;
+
+    box-shadow:
+      0 20px 50px rgba(124, 95, 214, 0.2);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(-8px) scale(0.97);
+
+    transform-origin: top right;
+
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      visibility 0.25s ease;
+  }
+
+
+  /* Open menu */
+
+  .mobile-menu.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0) scale(1);
+  }
+
+
+  /* Mobile links */
+
+  .mobile-menu a {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    min-height: 44px;
+
+    padding: 0 18px;
+
+    color: var(--text-light);
+
+    text-decoration: none;
+
+    font-size: 0.95rem;
+
+    font-weight: 500;
+
+    border-radius: 12px;
+
+    transition: 0.25s ease;
+  }
+
+
+  .mobile-menu a:hover {
+    background: rgba(139, 92, 246, 0.08);
+
+    color: var(--accent);
+  }
+
+
+  .mobile-menu a.active {
+    color: var(--accent);
+    font-weight: 600;
+
+    background: var(--nav-active-bg);
+    border: 1px solid var(--nav-active-border);
+    box-shadow: var(--nav-active-shadow);
+  }
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 700px) {
+
+  .navbar-container {
+    width: 94%;
+
+    height: 58px;
+
+    padding-left: 15px;
+  }
+
+    .logo {
+        font-size: 1.8rem;
+    }
+
+    .theme-toggle {
+        --tt-track: 50px;
+        --tt-knob: 22px;
+
+        height: 28px;
+     }
+
+     .theme-toggle-knob {
+        font-size: 0.7rem;
+     }
+
+  .menu-toggle {
+    display: flex;
+
+    width: 42px;
+    height: 42px;
+  }
+
+  .menu-toggle span {
+    width: 16px;
+  }
+
+  .navbar-actions {
+    gap: 5px;
+  }
+
+  .mobile-menu {
+    width: 190px;
+  }
+}

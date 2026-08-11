@@ -1,0 +1,345 @@
+/* ===========================
+   CERTIFICATIONS
+=========================== */
+
+.certifications {
+    position: relative;
+    overflow: hidden;
+
+    padding: 8rem 0;
+
+    background:
+        radial-gradient(circle at 15% 20%,
+            var(--bg-radial-1),
+            transparent 40%),
+
+        radial-gradient(circle at 85% 20%,
+            var(--bg-radial-2),
+            transparent 35%),
+
+        linear-gradient(
+            180deg,
+            var(--bg-section-start) 0%,
+            var(--bg-section-end) 100%
+        );
+
+    transition: background 0.4s ease;
+}
+
+.certifications .container{
+    width:min(1200px,92%);
+    margin:auto;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.certifications-heading{
+
+    max-width:640px;
+
+    margin-bottom:4rem;
+}
+
+.certifications-subtitle{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-bottom:1.5rem;
+
+    color:var(--accent);
+
+    font-size:.75rem;
+
+    font-weight:600;
+
+    letter-spacing:5px;
+}
+
+.subtitle-line{
+
+    width:40px;
+
+    height:2px;
+
+    border-radius:999px;
+
+    background:#D9B7FF;
+}
+
+/* The two sparkles that close every section eyebrow across the
+   portfolio — same four-point mark as .sparkle-mark, just static
+   and sized to sit at the end of a line of text. A solid accent
+   color (not the translucent --sparkle-color) so they stay
+   clearly visible against both light and dark section
+   backgrounds instead of blending in. */
+
+.eyebrow-sparkle{
+
+    display:inline-block;
+
+    flex-shrink:0;
+
+    background-color:var(--accent-strong);
+
+    -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0 Z'/%3E%3C/svg%3E");
+
+    mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0 Z'/%3E%3C/svg%3E");
+
+    -webkit-mask-size:contain;
+
+    mask-size:contain;
+
+    -webkit-mask-repeat:no-repeat;
+
+    mask-repeat:no-repeat;
+}
+
+.eyebrow-sparkle--lg{
+
+    width:11px;
+
+    height:11px;
+}
+
+.eyebrow-sparkle--sm{
+
+    width:7px;
+
+    height:7px;
+
+    opacity:.75;
+
+    transform:translateY(3px);
+}
+
+.certifications-title{
+
+    font-family:"Cormorant Garamond", serif;
+
+    font-size:clamp(3rem,6vw,4.5rem);
+
+    line-height:1;
+
+    color:var(--text-heading);
+
+    margin-bottom:1.5rem;
+}
+
+.certifications-title span{
+
+    font-style:italic;
+
+    background:linear-gradient(135deg, #7B55D3, #B086F9);
+
+    background-clip:text;
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+    color:var(--accent);
+}
+
+.certifications-text{
+
+    color:var(--text-body);
+
+    line-height:1.9;
+
+    font-size:1.05rem;
+}
+
+/* ===========================
+   GRID
+=========================== */
+
+.certifications-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:2rem;
+}
+
+/* ===========================
+   CARD
+   Fixed deep-plum styling, same
+   language as the featured project
+   card — independent of the page's
+   light/dark theme.
+=========================== */
+
+.cert-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    height:100%;
+
+    border-radius:26px;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            165deg,
+            #201530 0%,
+            #160e22 55%,
+            #110a1a 100%
+        );
+
+    border:1px solid rgba(216,183,255,.14);
+
+    box-shadow:
+        0 18px 45px rgba(60,20,95,.28);
+
+    transition:transform .4s ease, box-shadow .4s ease, border-color .4s ease;
+}
+
+.cert-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(216,183,255,.32);
+
+    box-shadow:
+        0 28px 60px rgba(120,70,200,.34);
+}
+
+.cert-image-frame{
+
+    position:relative;
+
+    aspect-ratio:4/3;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    background:#120b1a;
+}
+
+.cert-image{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    transition:transform .5s ease;
+}
+
+.cert-card:hover .cert-image{
+
+    transform:scale(1.045);
+}
+
+.cert-year{
+
+    position:absolute;
+
+    top:14px;
+    right:14px;
+
+    padding:.3rem .7rem;
+
+    border-radius:999px;
+
+    background:rgba(15,8,20,.55);
+
+    border:1px solid rgba(255,255,255,.22);
+
+    backdrop-filter:blur(6px);
+
+    color:#fff;
+
+    font-size:.7rem;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+}
+
+.cert-body{
+
+    padding:1.5rem 1.6rem 1.75rem;
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+.cert-org{
+
+    font-size:.66rem;
+
+    font-weight:700;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+
+    color:#C6A7FA;
+
+    margin-bottom:.5rem;
+}
+
+.cert-title{
+
+    font-family:"Cormorant Garamond", serif;
+
+    font-size:1.35rem;
+
+    line-height:1.25;
+
+    color:#F5EEFF;
+
+    margin-bottom:.65rem;
+}
+
+.cert-description{
+
+    font-size:.85rem;
+
+    line-height:1.65;
+
+    color:#C9BEDD;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width:640px){
+
+    .certifications-grid{
+
+        grid-template-columns:1fr;
+    }
+}
+
+@media (max-width:768px){
+
+    .certifications{
+
+        padding:6rem 0;
+    }
+
+    .certifications-heading{
+
+        margin-bottom:3rem;
+    }
+}

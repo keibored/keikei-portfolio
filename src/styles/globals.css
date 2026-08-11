@@ -1,0 +1,129 @@
+@import "./variables.css";
+@import url("https://fonts.googleapis.com/css2?family=Petit+Formal+Script&family=Alex+Brush&family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap");
+@import "./variables.css";
+@import "./utilities.css";
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Poppins",sans-serif;
+    color:var(--text);
+    background:var(--background);
+    overflow-x:hidden;
+
+    transition:
+        background-color var(--theme-transition),
+        color var(--theme-transition);
+}
+
+h1,h2,h3{
+    font-family:"Cormorant Garamond",serif;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font:inherit;
+    cursor:pointer;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+body{
+    background:
+        radial-gradient(circle at top left,var(--bg-radial-1) 0%,transparent 35%),
+        radial-gradient(circle at bottom right,var(--bg-radial-2) 0%,transparent 30%),
+        var(--background);
+}
+
+[data-theme="dark"] body{
+    background:
+        radial-gradient(circle at 18% 12%,var(--bg-radial-1),transparent 42%),
+        radial-gradient(circle at 88% 18%,var(--bg-radial-2),transparent 46%),
+        radial-gradient(circle at 55% 85%,var(--bg-radial-3),transparent 50%),
+        linear-gradient(165deg,#0b0812 0%,#100b19 40%,#160f21 70%,#1e142b 100%);
+}
+
+body::before{
+    content:"";
+
+    position:fixed;
+    inset:0;
+
+    background-image:
+        linear-gradient(rgba(141,107,199,.05) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(141,107,199,.05) 1px,transparent 1px);
+
+    background-size:48px 48px;
+
+    pointer-events:none;
+
+    z-index:-1;
+}
+
+[data-theme="dark"] body::before{
+    background-image:
+        linear-gradient(rgba(181,140,255,.06) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(181,140,255,.06) 1px,transparent 1px);
+}
+
+/* =========================================
+   SIDEBAR LAYOUT OFFSET
+   Pushes page content clear of the fixed
+   left glass sidebar. Sections below the Hero
+   use this page-level offset. The Hero itself
+   breaks out of it (see .hero in Hero.css) so
+   its coquette background can extend under the
+   sidebar gutter instead of stopping at its edge.
+   The sidebar itself hides below 1101px
+   (Navbar.css) in favor of the compact top bar,
+   so this offset only applies at/above that same
+   breakpoint — below it, page content already
+   has no sidebar to clear.
+========================================= */
+
+/* Sidebar sits 20px from the edge, so the
+   offset needs to clear that inset too, plus
+   a little breathing room before the content. */
+
+@media (min-width:1101px){
+    body{
+        padding-left: calc(var(--sidebar-width) + 44px);
+    }
+}
+
+/* =========================================
+   DARK MODE — GLASSMORPHISM BOOST
+   Shared frosted-glass tuning (blur + saturation)
+   for every translucent surface across sections.
+========================================= */
+
+[data-theme="dark"] .navbar-container,
+[data-theme="dark"] .sidebar,
+[data-theme="dark"] .about-card,
+[data-theme="dark"] .project-card,
+[data-theme="dark"] .skills-grid,
+[data-theme="dark"] .skill-card,
+[data-theme="dark"] .hero-socials a,
+[data-theme="dark"] .mobile-menu,
+[data-theme="dark"] .secondary-button,
+[data-theme="dark"] .theme-toggle,
+[data-theme="dark"] .menu-toggle,
+[data-theme="dark"] .back-top{
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+}

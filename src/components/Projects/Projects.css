@@ -1,0 +1,674 @@
+/* ===========================
+   PROJECTS
+=========================== */
+
+.projects {
+    position: relative;
+    overflow: hidden;
+
+    padding: 8rem 0;
+
+    background:
+        radial-gradient(circle at 15% 20%,
+            var(--bg-radial-1),
+            transparent 40%),
+
+        radial-gradient(circle at 85% 25%,
+            var(--bg-radial-2),
+            transparent 35%),
+
+        linear-gradient(
+            180deg,
+            var(--bg-section-start) 0%,
+            var(--bg-section-end) 100%
+        );
+
+    transition: background 0.4s ease;
+}
+
+.projects .container{
+    width:min(1200px,92%);
+    margin:auto;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.projects-heading{
+
+    max-width:620px;
+
+    margin-bottom:4rem;
+}
+
+.projects-subtitle{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-bottom:1.5rem;
+
+    font-size:.75rem;
+
+    font-weight:600;
+
+    letter-spacing:5px;
+
+    color:var(--accent);
+}
+
+.subtitle-line{
+
+    width:42px;
+
+    height:2px;
+
+    border-radius:999px;
+
+    background:#D8B7FF;
+}
+
+/* The two sparkles that close every section eyebrow across the
+   portfolio — same four-point mark as .sparkle-mark, just static
+   and sized to sit at the end of a line of text. A solid accent
+   color (not the translucent --sparkle-color) so they stay
+   clearly visible against both light and dark section
+   backgrounds instead of blending in. */
+
+.eyebrow-sparkle{
+
+    display:inline-block;
+
+    flex-shrink:0;
+
+    background-color:var(--accent-strong);
+
+    -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0 Z'/%3E%3C/svg%3E");
+
+    mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0 Z'/%3E%3C/svg%3E");
+
+    -webkit-mask-size:contain;
+
+    mask-size:contain;
+
+    -webkit-mask-repeat:no-repeat;
+
+    mask-repeat:no-repeat;
+}
+
+.eyebrow-sparkle--lg{
+
+    width:11px;
+
+    height:11px;
+}
+
+.eyebrow-sparkle--sm{
+
+    width:7px;
+
+    height:7px;
+
+    opacity:.75;
+
+    transform:translateY(3px);
+}
+
+.projects-title{
+
+    font-family:"Cormorant Garamond", serif;
+
+    font-size:clamp(4rem,8vw,6rem);
+
+    line-height:.9;
+
+    color:var(--text-heading);
+
+    margin-bottom:1.5rem;
+}
+
+.projects-title span{
+
+    font-style:italic;
+
+    color:var(--accent);
+}
+
+.projects-text{
+
+    max-width:500px;
+
+    color:var(--text-body);
+
+    line-height:1.9;
+
+    font-size:1.05rem;
+}
+
+/* ===========================
+   FEATURED PROJECT
+   Editorial case-study card: a
+   rich pet-themed preview on top,
+   details below. Fixed deep-plum
+   styling on purpose (like a
+   showcase tile), independent of
+   the light/dark page theme.
+=========================== */
+
+.featured-project{
+
+    width:100%;
+
+    max-width:460px;
+
+    margin:0 auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    background:
+        linear-gradient(
+            165deg,
+            #251935 0%,
+            #180f27 55%,
+            #120b1c 100%
+        );
+
+    border:1px solid rgba(216,183,255,.14);
+
+    box-shadow:
+        0 25px 60px rgba(60,20,95,.32),
+        inset 0 1px 0 rgba(255,255,255,.05);
+
+    transition:transform .4s ease, box-shadow .4s ease;
+}
+
+.featured-project:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:
+        0 35px 80px rgba(120,70,200,.38),
+        inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+/* ===========================
+   PREVIEW
+=========================== */
+
+.featured-preview{
+
+    position:relative;
+
+    display:block;
+
+    aspect-ratio:1902/911;
+
+    text-decoration:none;
+
+    overflow:hidden;
+
+    background:#1c1128;
+}
+
+/* The actual FindYourFur homepage screenshot — shown in full,
+   at its native ratio, so nothing gets cropped away. */
+
+.featured-preview-img{
+
+    position:relative;
+
+    z-index:0;
+
+    display:block;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:transform .5s ease;
+}
+
+.featured-preview:hover .featured-preview-img{
+
+    transform:scale(1.055);
+}
+
+/* Bottom gradient so the badge/CTA stay legible over the photo,
+   and the preview blends into the dark card below it. */
+
+.featured-preview::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:1;
+
+    pointer-events:none;
+
+    background:linear-gradient(
+        180deg,
+        rgba(18,10,26,0) 58%,
+        rgba(15,8,20,.88) 100%
+    );
+
+    transition:opacity .35s ease;
+}
+
+.featured-preview:hover::after{
+
+    opacity:.85;
+}
+
+.featured-badge{
+
+    position:absolute;
+
+    top:16px;
+    left:18px;
+
+    z-index:2;
+
+    padding:.3rem .7rem;
+
+    border-radius:999px;
+
+    background:rgba(15,8,20,.5);
+
+    backdrop-filter:blur(6px);
+
+    color:rgba(255,255,255,.9);
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    font-size:.65rem;
+
+    font-weight:600;
+}
+
+.featured-visit{
+
+    position:absolute;
+
+    left:18px;
+    bottom:16px;
+
+    z-index:2;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:.4rem;
+
+    font-size:.78rem;
+
+    font-weight:600;
+
+    letter-spacing:.5px;
+
+    color:#fff;
+}
+
+.featured-visit .arrow{
+
+    display:inline-block;
+
+    transition:transform .3s ease;
+}
+
+.featured-preview:hover .featured-visit .arrow{
+
+    transform:translateX(5px);
+}
+
+/* Small "view" pill, echoing the site's own cursor label */
+
+.featured-view-pill{
+
+    position:absolute;
+
+    bottom:16px;
+    right:18px;
+
+    z-index:3;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:.4rem;
+
+    padding:.4rem .85rem;
+
+    border-radius:999px;
+
+    background:rgba(20,12,32,.35);
+
+    border:1px solid rgba(255,255,255,.28);
+
+    backdrop-filter:blur(8px);
+
+    color:#fff;
+
+    font-size:.68rem;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+
+    text-transform:lowercase;
+
+    transition:.3s;
+}
+
+.pill-dot{
+
+    width:6px;
+
+    height:6px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    box-shadow:0 0 0 3px rgba(255,255,255,.25);
+}
+
+.featured-preview:hover .featured-view-pill{
+
+    background:rgba(20,12,32,.55);
+
+    border-color:rgba(255,255,255,.45);
+
+    transform:translateY(-2px);
+}
+
+/* ===========================
+   BODY
+=========================== */
+
+.featured-body{
+
+    padding:1.85rem 1.85rem 2.1rem;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    text-align:center;
+}
+
+.project-tags{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:.5rem;
+
+    margin-bottom:1rem;
+}
+
+.project-tags span{
+
+    padding:.4rem .85rem;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(216,183,255,.18);
+
+    color:#E4D8FF;
+
+    font-size:.72rem;
+
+    font-weight:600;
+
+    transition:.25s;
+}
+
+.project-tags span:hover{
+
+    background:rgba(216,183,255,.14);
+
+    border-color:rgba(216,183,255,.4);
+
+    transform:translateY(-2px);
+}
+
+.featured-body h3{
+
+    font-family:"Cormorant Garamond", serif;
+
+    font-size:1.7rem;
+
+    color:#F5EEFF;
+
+    margin-bottom:.6rem;
+}
+
+.featured-body p{
+
+    color:#C9BEDD;
+
+    font-size:.9rem;
+
+    line-height:1.7;
+
+    margin-bottom:1.5rem;
+}
+
+.view-project-btn{
+
+    position:relative;
+
+    isolation:isolate;
+
+    align-self:center;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:1px solid rgba(216,183,255,.4);
+
+    cursor:pointer;
+
+    padding:.75rem 1.6rem;
+
+    border-radius:999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(123,85,211,.55),
+            rgba(176,134,249,.55)
+        );
+
+    backdrop-filter:blur(14px) saturate(150%);
+    -webkit-backdrop-filter:blur(14px) saturate(150%);
+
+    color:#fff;
+
+    font-size:.85rem;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.25),
+        0 14px 30px rgba(150,100,240,.3);
+
+    transition:transform .35s, box-shadow .35s, background .35s, border-color .35s;
+}
+
+.view-project-btn:hover{
+
+    transform:translateY(-4px);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(123,85,211,.72),
+            rgba(176,134,249,.72)
+        );
+
+    border-color:rgba(216,183,255,.6);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.32),
+        0 20px 42px rgba(150,100,240,.42);
+}
+
+.view-project-btn .cta-label{
+
+    position:relative;
+
+    z-index:1;
+}
+
+/* ===========================
+   GRID
+=========================== */
+
+.project-grid{
+
+    margin-top:3rem;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:2rem;
+}
+
+.project-card{
+
+    padding:2rem;
+
+    border-radius:28px;
+
+    background:var(--surface-glass);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid var(--border-glass);
+
+    transition:.35s, background .4s ease, border-color .4s ease;
+
+    box-shadow:
+        0 12px 30px rgba(140,110,200,.08);
+}
+
+[data-theme="dark"] .project-card{
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.3),
+        inset 0 1px 0 var(--glass-highlight);
+}
+
+.project-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 22px 45px rgba(130,90,210,.15);
+}
+
+[data-theme="dark"] .project-card:hover{
+
+    box-shadow:
+        0 22px 45px rgba(150,100,255,.2),
+        inset 0 1px 0 var(--glass-highlight);
+}
+
+.project-card span{
+
+    color:var(--accent);
+
+    font-size:.75rem;
+
+    letter-spacing:2px;
+}
+
+.project-card h4{
+
+    margin:1rem 0;
+
+    font-size:1.5rem;
+
+    color:var(--text-heading);
+
+    font-family:"Cormorant Garamond", serif;
+}
+
+.project-card p{
+
+    color:var(--text-body);
+
+    line-height:1.8;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width:992px){
+
+    .project-grid{
+
+        grid-template-columns:1fr;
+    }
+}
+
+@media (max-width:768px){
+
+    .featured-project{
+
+        max-width:100%;
+    }
+
+    .featured-badge{
+
+        font-size:.6rem;
+
+        padding:.28rem .6rem;
+    }
+
+    .featured-visit{
+
+        font-size:.72rem;
+    }
+
+    .projects-title{
+
+        font-size:4rem;
+    }
+}
