@@ -170,10 +170,11 @@
 
 /* ===========================
    CARD
-   Fixed deep-plum styling, same
-   language as the featured project
-   card — independent of the page's
-   light/dark theme.
+   Theme-adaptive glass card — light
+   glass surface + dark text in light
+   mode, the original deep-plum tile
+   preserved exactly in dark mode via
+   [data-theme="dark"] overrides.
 =========================== */
 
 .cert-card{
@@ -188,6 +189,18 @@
 
     overflow:hidden;
 
+    background:var(--surface-glass-strong);
+
+    border:1px solid rgba(123,85,211,.22);
+
+    box-shadow:
+        0 18px 45px rgba(120,80,180,.1);
+
+    transition:transform .4s ease, background-color .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+
+[data-theme="dark"] .cert-card{
+
     background:
         linear-gradient(
             165deg,
@@ -196,17 +209,23 @@
             #110a1a 100%
         );
 
-    border:1px solid rgba(216,183,255,.14);
+    border-color:rgba(216,183,255,.14);
 
     box-shadow:
         0 18px 45px rgba(60,20,95,.28);
-
-    transition:transform .4s ease, box-shadow .4s ease, border-color .4s ease;
 }
 
 .cert-card:hover{
 
     transform:translateY(-8px);
+
+    border-color:rgba(123,85,211,.4);
+
+    box-shadow:
+        0 28px 60px rgba(120,70,200,.18);
+}
+
+[data-theme="dark"] .cert-card:hover{
 
     border-color:rgba(216,183,255,.32);
 
@@ -227,6 +246,13 @@
     justify-content:center;
 
     overflow:hidden;
+
+    background:var(--surface);
+
+    transition:background-color .3s ease;
+}
+
+[data-theme="dark"] .cert-image-frame{
 
     background:#120b1a;
 }
@@ -258,19 +284,30 @@
 
     border-radius:999px;
 
-    background:rgba(15,8,20,.55);
+    background:var(--chip-bg);
 
-    border:1px solid rgba(255,255,255,.22);
+    border:1px solid var(--border-glass);
 
     backdrop-filter:blur(6px);
 
-    color:#fff;
+    color:var(--text-heading);
 
     font-size:.7rem;
 
     font-weight:700;
 
     letter-spacing:.5px;
+
+    transition:background-color .3s ease, border-color .3s ease, color .3s ease;
+}
+
+[data-theme="dark"] .cert-year{
+
+    background:rgba(15,8,20,.55);
+
+    border-color:rgba(255,255,255,.22);
+
+    color:#fff;
 }
 
 .cert-body{
@@ -292,9 +329,16 @@
 
     text-transform:uppercase;
 
-    color:#C6A7FA;
+    color:var(--accent);
 
     margin-bottom:.5rem;
+
+    transition:color .3s ease;
+}
+
+[data-theme="dark"] .cert-org{
+
+    color:#C6A7FA;
 }
 
 .cert-title{
@@ -305,9 +349,16 @@
 
     line-height:1.25;
 
-    color:#F5EEFF;
+    color:var(--text-heading);
 
     margin-bottom:.65rem;
+
+    transition:color .3s ease;
+}
+
+[data-theme="dark"] .cert-title{
+
+    color:#F5EEFF;
 }
 
 .cert-description{
@@ -315,6 +366,13 @@
     font-size:.85rem;
 
     line-height:1.65;
+
+    color:var(--text-body);
+
+    transition:color .3s ease;
+}
+
+[data-theme="dark"] .cert-description{
 
     color:#C9BEDD;
 }

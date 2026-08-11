@@ -308,6 +308,10 @@
 
 .contact-action--primary{
 
+    position:relative;
+
+    isolation:isolate;
+
     background:rgba(255,255,255,.82);
 
     backdrop-filter:blur(14px) saturate(140%);
@@ -318,7 +322,20 @@
 
     box-shadow:
         inset 0 1px 0 rgba(255,255,255,.6),
-        0 18px 40px rgba(60,30,110,.22);
+        0 18px 40px rgba(139,92,246,.28);
+}
+
+.contact-action--primary .contact-action-content{
+
+    position:relative;
+
+    z-index:1;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.9rem;
 }
 
 .contact-action--primary .contact-action-icon{
@@ -346,7 +363,7 @@
 
     box-shadow:
         inset 0 1px 0 rgba(255,255,255,.7),
-        0 24px 50px rgba(60,30,110,.32);
+        0 24px 50px rgba(139,92,246,.4);
 }
 
 /* Secondary — GitHub / LinkedIn */

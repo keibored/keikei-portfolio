@@ -2,6 +2,7 @@ import "./Contact.css";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 import TiltCard from "../effects/TiltCard";
 import SectionReveal from "../effects/SectionReveal";
+import CtaSparkles from "../effects/CtaSparkles";
 
 function Contact() {
   return (
@@ -43,14 +44,18 @@ function Contact() {
                 className="contact-action contact-action--primary"
                 data-cursor="button"
               >
-                <span className="contact-action-icon">
-                  <FaEnvelope />
-                </span>
+                <CtaSparkles variant="a" />
 
-                <span className="contact-action-text">
-                  <span className="contact-action-label">Email Me</span>
-                  <span className="contact-action-value">
-                    keishadumpit@gmail.com
+                <span className="contact-action-content">
+                  <span className="contact-action-icon">
+                    <FaEnvelope />
+                  </span>
+
+                  <span className="contact-action-text">
+                    <span className="contact-action-label">Email Me</span>
+                    <span className="contact-action-value">
+                      keishadumpit@gmail.com
+                    </span>
                   </span>
                 </span>
               </a>

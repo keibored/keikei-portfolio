@@ -12,6 +12,7 @@ import { FaArrowRight, FaDownload } from "react-icons/fa";
 
 import { usePointerFine } from "../../hooks/usePointerFine";
 import FloatingGlassHeart from "../effects/FloatingGlassHeart";
+import CtaSparkles from "../effects/CtaSparkles";
 
 const sparklePositions = [
   "spark-1",
@@ -125,8 +126,11 @@ function Hero() {
           <div className="hero-buttons">
 
             <a href="#projects" className="primary-button">
-              View My Work
-              <FaArrowRight />
+              <CtaSparkles variant="a" />
+              <span className="cta-label">
+                View My Work
+                <FaArrowRight />
+              </span>
             </a>
 
             <a

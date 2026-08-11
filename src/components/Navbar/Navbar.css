@@ -370,6 +370,13 @@
   transform: translateY(-3px);
 }
 
+/* In dark mode --accent is a light lavender, so the hover fill
+   above needs dark text/icon instead of white to stay readable. */
+
+[data-theme="dark"] .sidebar-socials a:hover {
+  color: var(--primary-light);
+}
+
 
 /* =========================================
    NAVBAR ACTIONS

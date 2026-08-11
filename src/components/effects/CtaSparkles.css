@@ -69,14 +69,14 @@
 
         opacity:.35;
 
-        transform:scale(.8) rotate(0deg);
+        transform:scale(.8) rotate(0deg) translateY(0);
     }
 
     50%{
 
         opacity:1;
 
-        transform:scale(1.05) rotate(10deg);
+        transform:scale(1.05) rotate(10deg) translateY(-2px);
     }
 }
 

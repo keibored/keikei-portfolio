@@ -153,10 +153,10 @@
    FEATURED PROJECT
    Editorial case-study card: a
    rich pet-themed preview on top,
-   details below. Fixed deep-plum
-   styling on purpose (like a
-   showcase tile), independent of
-   the light/dark page theme.
+   details below. Theme-adaptive —
+   light glass in light mode, the
+   original deep-plum tile preserved
+   exactly in dark mode.
 =========================== */
 
 .featured-project{
@@ -177,6 +177,19 @@
 
     position:relative;
 
+    background:var(--surface-glass-strong);
+
+    border:1px solid rgba(123,85,211,.22);
+
+    box-shadow:
+        0 25px 60px rgba(120,80,180,.12),
+        inset 0 1px 0 rgba(255,255,255,.4);
+
+    transition:transform .4s ease, background-color .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+
+[data-theme="dark"] .featured-project{
+
     background:
         linear-gradient(
             165deg,
@@ -185,18 +198,27 @@
             #120b1c 100%
         );
 
-    border:1px solid rgba(216,183,255,.14);
+    border-color:rgba(216,183,255,.14);
 
     box-shadow:
         0 25px 60px rgba(60,20,95,.32),
         inset 0 1px 0 rgba(255,255,255,.05);
-
-    transition:transform .4s ease, box-shadow .4s ease;
 }
 
 .featured-project:hover{
 
     transform:translateY(-10px);
+
+    border-color:rgba(123,85,211,.4);
+
+    box-shadow:
+        0 35px 80px rgba(120,70,200,.2),
+        inset 0 1px 0 rgba(255,255,255,.5);
+}
+
+[data-theme="dark"] .featured-project:hover{
+
+    border-color:rgba(216,183,255,.14);
 
     box-shadow:
         0 35px 80px rgba(120,70,200,.38),
@@ -438,11 +460,11 @@
 
     border-radius:999px;
 
-    background:rgba(255,255,255,.06);
+    background:var(--chip-bg);
 
-    border:1px solid rgba(216,183,255,.18);
+    border:1px solid rgba(123,85,211,.25);
 
-    color:#E4D8FF;
+    color:var(--text-heading);
 
     font-size:.72rem;
 
@@ -451,13 +473,29 @@
     transition:.25s;
 }
 
+[data-theme="dark"] .project-tags span{
+
+    background:rgba(255,255,255,.06);
+
+    border-color:rgba(216,183,255,.18);
+
+    color:#E4D8FF;
+}
+
 .project-tags span:hover{
+
+    background:rgba(123,85,211,.2);
+
+    border-color:rgba(123,85,211,.45);
+
+    transform:translateY(-2px);
+}
+
+[data-theme="dark"] .project-tags span:hover{
 
     background:rgba(216,183,255,.14);
 
     border-color:rgba(216,183,255,.4);
-
-    transform:translateY(-2px);
 }
 
 .featured-body h3{
@@ -466,20 +504,34 @@
 
     font-size:1.7rem;
 
-    color:#F5EEFF;
+    color:var(--text-heading);
 
     margin-bottom:.6rem;
+
+    transition:color .3s ease;
+}
+
+[data-theme="dark"] .featured-body h3{
+
+    color:#F5EEFF;
 }
 
 .featured-body p{
 
-    color:#C9BEDD;
+    color:var(--text-body);
 
     font-size:.9rem;
 
     line-height:1.7;
 
     margin-bottom:1.5rem;
+
+    transition:color .3s ease;
+}
+
+[data-theme="dark"] .featured-body p{
+
+    color:#C9BEDD;
 }
 
 .view-project-btn{
