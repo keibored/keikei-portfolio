@@ -1,75 +1,51 @@
-# React + TypeScript + Vite
+# Keisha Dumpit — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive portfolio built with the existing React, TypeScript, Vite, and plain CSS stack. The frontend lives entirely in `client/`; no backend is required.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Use a Node.js version supported by Vite 8 (Node 20.19+ or 22.12+).
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```sh
+cd client
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open the local URL printed by Vite. On Windows PowerShell, if execution policy blocks `npm.ps1`, use `npm.cmd` for the same commands.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Checks and production preview
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```sh
+cd client
+npm run lint
+npm run build
+npm run preview
 ```
+
+For repeatable installs in CI, use `npm ci` in `client/`. Configure static hosting with root directory `client`, build command `npm run build`, and output directory `dist` (or `client/dist` when the host resolves paths from the repository root). No deployment has been performed.
+
+## Content and assets
+
+- Contact details and CV URL: `client/src/data/profile.ts`.
+- Project descriptions, contributions, technologies, links, and actual screenshots: `client/src/data/projects.ts` and `client/src/assets/images/projects/`.
+- Education, experience, and skills: `client/src/components/About/About.tsx`.
+- Existing certificate PDFs remain linked from the About section.
+- No Constellate information or screenshot was present, so it is not listed.
+- The original CV link referenced a missing PDF. `client/public/Keisha_Dumpit_CV.pdf` is a downloadable CV made from existing repository facts. Replace it with your preferred CV and update the URL in `profile.ts` when available. The printable HTML source is alongside the PDF.
+
+The mockup attachment was unavailable during implementation; the visual direction follows the written brief. The page supports light/dark themes, keyboard navigation, reduced motion, and desktop/tablet/mobile layouts. Google Fonts have local serif and sans-serif fallbacks.
+## Verification
+
+Verified locally on 2026-10-05:
+
+- `npm install` from `client/` completed; `npm run dev` started Vite successfully.
+- `npm run build` and `npm run lint` passed.
+- Reviewed the development and production pages in Chromium at desktop, tablet, and mobile sizes; checked widths of 320, 390, 768, and 1440 pixels with no horizontal overflow after fixes.
+- Work and back-to-top buttons navigate to the correct sections.
+- The CV PDF downloaded successfully and matched the source file; certificate assets returned HTTP 200 in development and production.
+- Existing WAH Payroll and FindYourFur destinations opened successfully. Social links use the existing GitHub/LinkedIn URLs; email links use the existing contact address.
+- Automated accessibility scans reported zero violations in light and dark themes. Decorative star glyphs were flagged for manual contrast review and were reviewed visually.
+- No browser page errors or Vite error overlay were found.
+
+No CI workflow or deployment configuration was present to update. Hosting path instructions above reflect the new directory structure. No deployment or merge was performed.
