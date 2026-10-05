@@ -1,0 +1,99 @@
+/* Hides the system cursor only while the custom one is actually
+   running (desktop, pointer:fine, no reduced-motion) — toggled by
+   InteractiveCursor.tsx, never applied to touch/reduced-motion
+   users, who keep the normal cursor untouched. */
+
+html.custom-cursor-active,
+html.custom-cursor-active *{
+    cursor:none !important;
+}
+
+/* Positioned via Framer Motion's x/y (GPU-accelerated transform,
+   updated 1:1 with the mouse — no left/top, no spring smoothing).
+   Kept as its own element so this position transform never has to
+   share a `transform` value with the centering one below. */
+.interactive-cursor-wrap{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:99999;
+
+    pointer-events:none;
+
+    transition:opacity .2s ease;
+}
+
+.interactive-cursor{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    transform:translate(-50%,-50%);
+}
+
+.cursor-mark{
+    display:block;
+    flex-shrink:0;
+
+    width:14px;
+    height:14px;
+
+    border-radius:50%;
+
+    background-color:var(--accent);
+
+    -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0 Z'/%3E%3C/svg%3E");
+    mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0 Z'/%3E%3C/svg%3E");
+    -webkit-mask-size:contain;
+    mask-size:contain;
+    -webkit-mask-repeat:no-repeat;
+    mask-repeat:no-repeat;
+
+    transition:width .25s ease, height .25s ease, background-color .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.cursor-button .cursor-mark,
+.cursor-view .cursor-mark,
+.cursor-explore .cursor-mark{
+    width:34px;
+    height:34px;
+
+    -webkit-mask-image:none;
+    mask-image:none;
+
+    background-color:rgba(180,140,255,.14);
+
+    border:1.5px solid var(--accent);
+
+    box-shadow:0 0 18px var(--glow);
+}
+
+.cursor-label{
+    display:none;
+
+    padding:.35rem .85rem;
+
+    border-radius:999px;
+
+    background:var(--surface-glass-strong);
+
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+
+    border:1px solid var(--border-glass);
+
+    color:var(--text-heading);
+
+    font-size:.72rem;
+    font-weight:600;
+    letter-spacing:.4px;
+
+    white-space:nowrap;
+
+    box-shadow:0 6px 20px rgba(80,50,110,.15);
+}
+
+.cursor-view .cursor-label,
+.cursor-explore .cursor-label{
+    display:inline-block;
+}

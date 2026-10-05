@@ -1,0 +1,148 @@
+:root {
+  /* ===========================================
+     LIGHT THEME (default)
+  =========================================== */
+
+  /* Brand */
+  --primary: #8d6bc7;
+  --primary-dark: #6d4fb0;
+  --primary-light: #ede5f8;
+
+  --accent: #7b55d3;
+  --accent-strong: #8b5cf6;
+
+  /* Page */
+  --background: #fcf9ff;
+  --bg-section-start: #fcfaff;
+  --bg-section-end: #f7f2ff;
+  --bg-radial-1: rgba(208, 188, 255, 0.2);
+  --bg-radial-2: rgba(174, 132, 255, 0.15);
+  --bg-radial-3: rgba(255, 255, 255, 0);
+
+  /* Surfaces — kept translucent so the room reads through */
+  --surface: #ffffff;
+  --surface-glass: rgba(255, 255, 255, 0.22);
+  --surface-glass-strong: rgba(255, 255, 255, 0.34);
+  --surface-glass-soft: rgba(255, 255, 255, 0.12);
+
+  /* Text */
+  --text: #2f2345;
+  --text-heading: #231b37;
+  --text-body: #5e5875;
+  --text-light: #73658e;
+  --text-muted: #8b849e;
+
+  /* Borders */
+  --border: #e8ddf8;
+  --border-glass: rgba(255, 255, 255, 0.32);
+
+  /* Shadows / Glow / Highlight */
+  --shadow: 0 15px 40px rgba(110, 79, 176, 0.12);
+  --shadow-color: rgba(120, 90, 180, 0.12);
+  --glow: rgba(186, 145, 255, 0.28);
+  --glass-highlight: rgba(255, 255, 255, 0.55);
+  --glass-blur: blur(18px) saturate(120%);
+
+  /* Sparkles — soft, not neon */
+  --sparkle-color: rgba(190, 160, 255, 0.65);
+
+  /* Navbar / sidebar — soft frosted glass, not a
+     solid panel, so the room stays visible through it */
+  --navbar-bg: rgba(255, 255, 255, 0.14);
+  --navbar-bg-hover: rgba(255, 255, 255, 0.22);
+  --navbar-border: rgba(255, 255, 255, 0.3);
+  --navbar-shadow: 0 12px 40px rgba(70, 40, 100, 0.12);
+  --navbar-blur: blur(20px) saturate(125%);
+
+  /* Chips / toggles */
+  --chip-bg: rgba(123, 85, 211, 0.28);
+  --chip-bg-hover: rgba(123, 85, 211, 0.45);
+  --chip-solid: rgba(123, 85, 211, 0.65);
+  --chip-solid-hover: rgba(139, 92, 246, 0.75);
+
+  /* Active nav pill — frosted lavender glass */
+  --nav-active-bg: rgba(170, 130, 240, 0.15);
+  --nav-active-border: rgba(255, 255, 255, 0.18);
+  --nav-active-shadow: 0 4px 16px rgba(150, 100, 220, 0.14);
+
+  /* Logo — deep lavender-purple signature */
+  --logo-color: #7650b8;
+  --logo-glow: rgba(180, 140, 255, 0.22);
+  --logo-shadow: rgba(90, 60, 140, 0.12);
+
+  /* Layout */
+  --sidebar-width: 196px;
+
+  /* Effects */
+  --radius: 24px;
+  --transition: 0.3s ease;
+  --theme-transition: 0.35s ease;
+}
+
+[data-theme="dark"] {
+  /* Brand */
+  --primary: #b58cff;
+  --primary-dark: #9a6ef0;
+  --primary-light: #2d1e3c;
+
+  --accent: #c3a4ff;
+  --accent-strong: #d5b8ff;
+
+  /* Page — layered black-purple atmosphere */
+  --background: #0b0812;
+  --bg-section-start: #100b19;
+  --bg-section-end: #160f21;
+  --bg-radial-1: rgba(180, 140, 255, 0.12);
+  --bg-radial-2: rgba(140, 90, 230, 0.1);
+  --bg-radial-3: rgba(210, 180, 255, 0.08);
+
+  /* Surfaces — translucent frosted glass, not solid plum */
+  --surface: #1a1424;
+  --surface-glass: rgba(40, 28, 56, 0.4);
+  --surface-glass-strong: rgba(46, 32, 64, 0.55);
+  --surface-glass-soft: rgba(50, 36, 70, 0.25);
+
+  /* Text */
+  --text: #f5f0ff;
+  --text-heading: #f5f0ff;
+  --text-body: #c7bdd8;
+  --text-light: #b6abcc;
+  --text-muted: #9788b0;
+
+  /* Borders */
+  --border: rgba(230, 215, 255, 0.14);
+  --border-glass: rgba(230, 215, 255, 0.16);
+
+  /* Shadows / Glow / Highlight */
+  --shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+  --shadow-color: rgba(0, 0, 0, 0.35);
+  --glow: rgba(180, 140, 255, 0.22);
+  --glass-highlight: rgba(230, 215, 255, 0.12);
+  --glass-blur: blur(20px) saturate(150%);
+
+  /* Sparkles */
+  --sparkle-color: rgba(240, 230, 255, 0.8);
+
+  /* Navbar — true frosted glass */
+  --navbar-bg: rgba(35, 24, 48, 0.35);
+  --navbar-bg-hover: rgba(42, 29, 57, 0.45);
+  --navbar-border: rgba(230, 215, 255, 0.16);
+  --navbar-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+  --navbar-blur: blur(24px) saturate(150%);
+
+  /* Chips / toggles — frosted, not solid purple */
+  --chip-bg: rgba(181, 140, 255, 0.14);
+  --chip-bg-hover: rgba(181, 140, 255, 0.24);
+  --chip-solid: rgba(150, 105, 240, 0.32);
+  --chip-solid-hover: rgba(181, 140, 255, 0.45);
+
+  /* Active nav pill — frosted lavender glass */
+  --nav-active-bg: rgba(190, 150, 255, 0.16);
+  --nav-active-border: rgba(220, 200, 255, 0.22);
+  --nav-active-shadow: 0 4px 18px rgba(170, 120, 255, 0.22);
+
+  /* Logo — white/ivory signature */
+  --logo-color: #f5eeff;
+  --logo-glow: rgba(200, 170, 255, 0.35);
+  --logo-shadow: rgba(0, 0, 0, 0.3);
+}
