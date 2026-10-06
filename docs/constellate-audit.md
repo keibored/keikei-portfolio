@@ -25,3 +25,7 @@ The owner explicitly confirmed “I'm the one who made it.” The contribution t
 
 client/src/data/projects.ts uses React, TypeScript, Node.js, Express, Socket.IO, Supabase, PostgreSQL, and Redis tags. The existing Projects component places its wrapping tag list after the contribution paragraph and before project links. Screenshot source, intrinsic dimensions, alt text, caption, and existing links are preserved. No dependencies or styling changes are needed.
 
+
+## Verification
+
+The portfolio production build and ESLint pass. The production preview was checked at 1440, 768, 390, and 320 pixels: all eight tags wrap within the card, appear below the contribution paragraph, and cause no horizontal overflow. The original 1440-by-900 screenshot loads with HTTP 200 and its SHA-256 is unchanged. The preview and View Live Demo anchors retain the verified https://constellate-pi.vercel.app/ destination and open in new tabs. No browser errors or Vite overlays were detected.
