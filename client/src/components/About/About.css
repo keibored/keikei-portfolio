@@ -1,0 +1,940 @@
+/* ===========================
+   ABOUT
+=========================== */
+
+.about{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:8rem 0;
+
+    background:
+        radial-gradient(circle at 15% 20%,
+            var(--bg-radial-1),
+            transparent 40%),
+
+        radial-gradient(circle at 85% 15%,
+            var(--bg-radial-2),
+            transparent 35%),
+
+        linear-gradient(
+            180deg,
+            var(--bg-section-start),
+            var(--bg-section-end)
+        );
+
+    transition: background 0.4s ease;
+}
+
+.about .container{
+
+    width:min(1200px,92%);
+
+    margin:auto;
+}
+
+/* ===========================
+   HEADING
+=========================== */
+
+.about-heading{
+
+    max-width:620px;
+
+    margin-bottom:4rem;
+}
+
+.about-subtitle{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-bottom:1.5rem;
+
+    color:var(--accent);
+
+    font-size:.75rem;
+
+    font-weight:600;
+
+    letter-spacing:5px;
+}
+
+.subtitle-line{
+
+    width:40px;
+
+    height:2px;
+
+    border-radius:999px;
+
+    background:#D9B7FF;
+}
+
+/* The two sparkles that close every section eyebrow across the
+   portfolio — same four-point mark as .sparkle-mark, just static
+   and sized to sit at the end of a line of text. A solid accent
+   color (not the translucent --sparkle-color) so they stay
+   clearly visible against both light and dark section
+   backgrounds instead of blending in. */
+
+.eyebrow-sparkle{
+
+    display:inline-block;
+
+    flex-shrink:0;
+
+    background-color:var(--accent-strong);
+
+    -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0 Z'/%3E%3C/svg%3E");
+
+    mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0 Z'/%3E%3C/svg%3E");
+
+    -webkit-mask-size:contain;
+
+    mask-size:contain;
+
+    -webkit-mask-repeat:no-repeat;
+
+    mask-repeat:no-repeat;
+}
+
+.eyebrow-sparkle--lg{
+
+    width:11px;
+
+    height:11px;
+}
+
+.eyebrow-sparkle--sm{
+
+    width:7px;
+
+    height:7px;
+
+    opacity:.75;
+
+    transform:translateY(3px);
+}
+
+.about-title{
+
+    font-family:"Cormorant Garamond", serif;
+
+    font-size:clamp(4rem,8vw,6rem);
+
+    line-height:.9;
+
+    color:var(--text-heading);
+
+    margin-bottom:1.5rem;
+}
+
+.about-title span{
+
+    color:var(--text-heading);
+
+    font-style:italic;
+
+    font-weight:500;
+}
+
+.about-intro{
+
+    max-width:520px;
+
+    font-size:1.1rem;
+
+    line-height:1.9;
+
+    color:var(--text-body);
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.about-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:3.5rem;
+
+    padding:3.5rem;
+
+    border-radius:34px;
+
+    background:var(--surface-glass);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid var(--border-glass);
+
+    box-shadow:
+        0 25px 60px rgba(120,80,180,.08);
+
+    transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+[data-theme="dark"] .about-card{
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.35),
+        inset 0 1px 0 var(--glass-highlight);
+}
+
+/* ===========================
+   PHOTO
+=========================== */
+
+.about-photo{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    text-align:center;
+}
+
+.photo-frame{
+
+    width:260px;
+
+    height:260px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--surface-glass-strong),
+            var(--surface)
+        );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-end;
+
+    box-shadow:
+        0 20px 45px rgba(120,90,180,.15);
+
+    margin-bottom:1.5rem;
+
+    transition: background 0.4s ease;
+}
+
+.about-image{
+
+    width:90%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    object-position:bottom;
+}
+
+.about-photo h3{
+
+    color:var(--text-heading);
+
+    font-size:1.7rem;
+
+    margin-bottom:.4rem;
+}
+
+.about-photo p{
+
+    color:var(--accent);
+
+    font-weight:600;
+
+    margin-bottom:.4rem;
+}
+
+.about-photo span{
+
+    color:var(--text-muted);
+
+    font-size:.95rem;
+}
+
+/* ===========================
+   TECH STACK
+=========================== */
+
+.about-techstack{
+
+    width:100%;
+}
+
+.techstack-label{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-start;
+
+    gap:12px;
+
+    margin-bottom:2.5rem;
+
+    color:var(--accent);
+
+    font-size:.78rem;
+
+    font-weight:600;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+}
+
+.tech-category{
+
+    margin-bottom:2rem;
+}
+
+.tech-category:last-child{
+
+    margin-bottom:0;
+}
+
+.tech-category-label{
+
+    font-size:.72rem;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:var(--text-muted);
+
+    margin-bottom:.9rem;
+
+    padding-bottom:.6rem;
+
+    border-bottom:1px solid var(--border-glass);
+}
+
+.tech-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(96px,1fr));
+
+    gap:.65rem;
+}
+
+/* Fully static tile — no transform, no transition, no hover
+   state at all. Looks identical whether hovered or not. */
+.tech-chip{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:.45rem;
+
+    padding:1rem .6rem;
+
+    border-radius:14px;
+
+    background:var(--surface-glass);
+
+    border:1px solid var(--border-glass);
+
+    color:var(--text-heading);
+
+    font-size:.78rem;
+
+    font-weight:600;
+
+    text-align:center;
+}
+
+.tech-chip svg{
+
+    font-size:1.4rem;
+
+    color:var(--accent);
+
+    flex-shrink:0;
+}
+
+/* ===========================
+   JOURNEY / TIMELINE
+=========================== */
+
+.journey-heading{
+
+    max-width:620px;
+
+    margin:6rem 0 4rem;
+}
+
+.journey-title{
+
+    font-family:"Cormorant Garamond", serif;
+
+    font-size:clamp(2.75rem,5vw,3.75rem);
+
+    line-height:1;
+
+    color:var(--text-heading);
+
+    margin-bottom:1.25rem;
+}
+
+.journey-intro{
+
+    max-width:520px;
+
+    font-size:1.05rem;
+
+    line-height:1.8;
+
+    color:var(--text-body);
+}
+
+.timeline{
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:3rem;
+
+    padding-left:2.75rem;
+}
+
+.timeline-line{
+
+    position:absolute;
+
+    top:.4rem;
+
+    bottom:.4rem;
+
+    left:.55rem;
+
+    width:2px;
+
+    background:linear-gradient(
+        180deg,
+        var(--border-glass),
+        var(--accent),
+        var(--border-glass)
+    );
+
+    opacity:.5;
+}
+
+.timeline-item{
+
+    position:relative;
+}
+
+.timeline-marker{
+
+    position:absolute;
+
+    top:.35rem;
+
+    left:-2.75rem;
+
+    width:14px;
+
+    height:14px;
+
+    border-radius:50%;
+
+    background:var(--accent);
+
+    box-shadow:0 0 0 4px var(--surface-glass-soft);
+}
+
+.timeline-card{
+
+    padding:2rem 2.25rem;
+
+    border-radius:24px;
+
+    background:var(--surface-glass);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid var(--border-glass);
+
+    box-shadow:0 20px 45px rgba(120,80,180,.08);
+
+    transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+[data-theme="dark"] .timeline-card{
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.35),
+        inset 0 1px 0 var(--glass-highlight);
+}
+
+.timeline-meta{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-bottom:.75rem;
+}
+
+.timeline-category{
+
+    font-size:.68rem;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:var(--text-muted);
+}
+
+.timeline-date{
+
+    font-size:.85rem;
+
+    font-weight:600;
+
+    color:var(--accent);
+}
+
+.timeline-title{
+
+    font-size:1.3rem;
+
+    color:var(--text-heading);
+
+    margin-bottom:.3rem;
+}
+
+.timeline-subtitle,
+.timeline-role{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--text-body);
+
+    margin-bottom:.3rem;
+}
+
+.timeline-description{
+
+    font-size:.92rem;
+
+    line-height:1.75;
+
+    color:var(--text-body);
+
+    margin:.75rem 0;
+}
+
+.timeline-link{
+
+    color:var(--accent);
+
+    font-weight:600;
+
+    text-decoration:underline;
+
+    text-underline-offset:3px;
+}
+
+.timeline-bullets{
+
+    list-style:none;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:.5rem;
+
+    margin:.75rem 0;
+}
+
+.timeline-bullets li{
+
+    position:relative;
+
+    padding-left:1.1rem;
+
+    font-size:.88rem;
+
+    line-height:1.6;
+
+    color:var(--text-body);
+}
+
+.timeline-bullets li::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:.55rem;
+
+    width:5px;
+
+    height:5px;
+
+    border-radius:50%;
+
+    background:var(--accent);
+}
+
+.timeline-tech{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:.5rem;
+
+    margin-top:1rem;
+}
+
+.timeline-tech span{
+
+    padding:.35rem .8rem;
+
+    border-radius:999px;
+
+    background:var(--chip-bg);
+
+    color:var(--text-heading);
+
+    font-size:.75rem;
+
+    font-weight:600;
+}
+
+/* ===========================
+   TIMELINE SHOWCASE
+   A nested "actual product"
+   preview inside the Experience
+   card. Theme-adaptive, same
+   glass system as .timeline-card
+   itself, so it reads as one
+   continuous card in both light
+   and dark mode instead of a
+   fixed dark island.
+=========================== */
+
+.timeline-showcase{
+
+    margin-top:1.5rem;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    background:var(--surface-glass-strong);
+
+    border:1px solid var(--border-glass);
+
+    box-shadow:0 18px 40px rgba(120,80,180,.08);
+
+    transition:transform .4s ease, box-shadow .4s ease, border-color .4s ease, background .4s ease;
+}
+
+[data-theme="dark"] .timeline-showcase{
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.35),
+        inset 0 1px 0 var(--glass-highlight);
+}
+
+.timeline-showcase:hover{
+
+    transform:translateY(-4px);
+
+    border-color:var(--accent);
+
+    box-shadow:0 26px 55px rgba(120,70,200,.22);
+}
+
+[data-theme="dark"] .timeline-showcase:hover{
+
+    box-shadow:
+        0 26px 55px rgba(150,100,255,.28),
+        inset 0 1px 0 var(--glass-highlight);
+}
+
+.timeline-showcase-preview{
+
+    display:block;
+
+    aspect-ratio:1919/908;
+
+    overflow:hidden;
+
+    background:#120b1a;
+}
+
+.timeline-showcase-img{
+
+    display:block;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:transform .5s ease;
+}
+
+.timeline-showcase-preview:hover .timeline-showcase-img{
+
+    transform:scale(1.04);
+}
+
+.timeline-showcase-body{
+
+    padding:1.5rem 1.6rem 1.75rem;
+}
+
+.timeline-showcase-org{
+
+    font-size:.66rem;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:var(--accent);
+}
+
+.timeline-showcase-title{
+
+    font-family:"Cormorant Garamond", serif;
+
+    font-size:1.35rem;
+
+    color:var(--text-heading);
+
+    margin:.4rem 0 .6rem;
+}
+
+.timeline-showcase-description{
+
+    font-size:.88rem;
+
+    line-height:1.7;
+
+    color:var(--text-body);
+
+    margin-bottom:.75rem;
+}
+
+.timeline-showcase-contribution{
+
+    padding:.75rem 1rem;
+
+    border-radius:14px;
+
+    background:var(--chip-bg);
+
+    border:1px solid var(--border-glass);
+
+    color:var(--text-body);
+
+    font-size:.82rem;
+
+    line-height:1.6;
+
+    margin-bottom:1.25rem;
+}
+
+.timeline-showcase-contribution strong{
+
+    color:var(--text-heading);
+}
+
+.timeline-showcase-tech{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:.5rem;
+
+    margin-bottom:1.5rem;
+}
+
+.timeline-showcase-tech span{
+
+    padding:.35rem .8rem;
+
+    border-radius:999px;
+
+    background:var(--chip-bg);
+
+    border:1px solid var(--border-glass);
+
+    color:var(--text-heading);
+
+    font-size:.72rem;
+
+    font-weight:600;
+}
+
+.timeline-showcase-btn{
+
+    display:inline-block;
+
+    padding:.65rem 1.4rem;
+
+    border-radius:999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7B55D3,
+            #B086F9
+        );
+
+    color:#fff;
+
+    font-size:.82rem;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+    box-shadow:0 12px 26px rgba(150,100,240,.3);
+
+    transition:.35s;
+}
+
+.timeline-showcase-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 16px 34px rgba(150,100,240,.4);
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+    .about{
+
+        padding:6rem 0;
+    }
+
+    .about-title{
+
+        font-size:4rem;
+    }
+
+    .photo-frame{
+
+        width:220px;
+
+        height:220px;
+    }
+
+    .about-card{
+
+        padding:2.25rem 1.5rem;
+
+        gap:2.5rem;
+    }
+
+    .tech-grid{
+
+        grid-template-columns:repeat(auto-fill,minmax(80px,1fr));
+
+        gap:.5rem;
+    }
+
+    .tech-chip{
+
+        padding:.75rem .4rem;
+
+        font-size:.72rem;
+    }
+
+    .tech-chip svg{
+
+        font-size:1.2rem;
+    }
+
+    .journey-heading{
+
+        margin:4rem 0 2.5rem;
+    }
+
+    .timeline{
+
+        padding-left:2rem;
+
+        gap:2.25rem;
+    }
+
+    .timeline-marker{
+
+        left:-2rem;
+    }
+
+    .timeline-line{
+
+        left:.3rem;
+    }
+
+    .timeline-card{
+
+        padding:1.5rem 1.5rem;
+    }
+
+    .timeline-showcase-body{
+
+        padding:1.25rem 1.25rem 1.5rem;
+    }
+}
